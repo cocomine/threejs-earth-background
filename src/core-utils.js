@@ -1,8 +1,8 @@
 // This core-utils contains the most important/top-level functions needed in creating a threejs application
 
 import * as THREE from "three"
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass"
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer"
+import {RenderPass} from "three/examples/jsm/postprocessing/RenderPass"
+import {EffectComposer} from "three/examples/jsm/postprocessing/EffectComposer"
 
 global.THREE = THREE
 
@@ -173,12 +173,14 @@ export const createCamera = (
     near = 0.1,
     far = 100,
     camPos = { x: 0, y: 0, z: 5 },
+    camRot = {x: 0, y: 0, z: 5, order: 'XYZ'},
     camLookAt = { x: 0, y: 0, z: 0 },
     aspect = window.innerWidth / window.innerHeight,
 ) => {
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
     camera.position.set(camPos.x, camPos.y, camPos.z)
-    camera.lookAt(camLookAt.x, camLookAt.y, camLookAt.z) // this only works when there's no OrbitControls
+    camera.rotation.set(camRot.x, camRot.y, camRot.z, camRot.order)
+    //camera.lookAt(camLookAt.x, camLookAt.y, camLookAt.z) // this only works when there's no OrbitControls
     camera.updateProjectionMatrix()
     return camera
 }

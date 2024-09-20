@@ -1,22 +1,19 @@
 // ThreeJS and Third-party deps
 import * as THREE from "three"
-import * as dat from 'dat.gui'
-import Stats from "three/examples/jsm/libs/stats.module"
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 // Core boilerplate code deps
-import { createCamera, createRenderer, runApp, updateLoadingProgressBar } from "./core-utils"
+import {createCamera, createRenderer, runApp, updateLoadingProgressBar} from "./core-utils"
 
 // Other deps
-import { loadTexture } from "./common-utils"
-import Albedo from "./assets/Albedo.jpg"
-import Bump from "./assets/Bump.jpg"
-import Clouds from "./assets/Clouds.png"
-import Ocean from "./assets/Ocean.png"
-import NightLights from "./assets/night_lights_modified.png"
+import {loadTexture} from "./common-utils"
+import Albedo from "./assets/8k_earth_daymap.webp"
+import Bump from "./assets/8k_earth_normal_map.webp"
+import Clouds from "./assets/8k_earth_clouds.webp"
+import Ocean from "./assets/8k_earth_specular_map.webp"
+import NightLights from "./assets/8k_earth_nightmap.webp"
 import vertexShader from "./shaders/vertex.glsl"
 import fragmentShader from "./shaders/fragment.glsl"
-import GaiaSky from "./assets/Gaia_EDR3_darkened.png"
+import GaiaSky from "./assets/8k_stars_milky_way.webp"
 
 global.THREE = THREE
 // previously this feature is .legacyMode = false, see https://www.donmccurdy.com/2020/06/17/color-management-in-threejs/
@@ -54,8 +51,16 @@ let renderer = createRenderer({ antialias: true }, (_renderer) => {
 
 // Create the camera
 // Pass in fov, near, far and camera position respectively
-let camera = createCamera(45, 1, 1000, { x: 0, y: 0, z: 30 })
-
+let camera = createCamera(45, 1, 1000, {
+  "x": -16.22085356162964,
+  "y": 2.5767889925127196,
+  "z": -8.243381774989047
+}, {
+  "x": 2.443064024217884,
+  "y": -0.9796447547660618,
+  "z": 2.532704110900425,
+  "order": "XYZ"
+})
 
 /**************************************************
  * 2. Build your scene in this threejs app
@@ -66,8 +71,15 @@ let camera = createCamera(45, 1, 1000, { x: 0, y: 0, z: 30 })
 let app = {
   async initScene() {
     // OrbitControls
-    this.controls = new OrbitControls(camera, renderer.domElement)
+    /*this.controls = new OrbitControls(camera, renderer.domElement)
     this.controls.enableDamping = true
+    this.controls.addEventListener("change", () => {
+        console.log("camera position", this.controls.object.position)
+        console.log("camera rotation", this.controls.object.rotation)
+    })*/
+    this.cameragroup = new THREE.Group()
+    this.cameragroup.add(camera)
+    scene.add(this.cameragroup)
 
     // adding a virtual sun using directional light
     this.dirLight = new THREE.DirectionalLight(0xffffff, params.sunIntensity)
@@ -235,7 +247,7 @@ let app = {
     }
 
     // GUI controls
-    const gui = new dat.GUI()
+    /*const gui = new dat.GUI()
     gui.add(params, "sunIntensity", 0.0, 5.0, 0.1).onChange((val) => {
       this.dirLight.intensity = val
     }).name("Sun Intensity")
@@ -245,26 +257,29 @@ let app = {
     gui.add(params, "speedFactor", 0.1, 20.0, 0.1).name("Rotation Speed")
     gui.add(params.atmOpacity, "value", 0.0, 1.0, 0.05).name("atmOpacity")
     gui.add(params.atmPowFactor, "value", 0.0, 20.0, 0.1).name("atmPowFactor")
-    gui.add(params.atmMultiplier, "value", 0.0, 20.0, 0.1).name("atmMultiplier")
+    gui.add(params.atmMultiplier, "value", 0.0, 20.0, 0.1).name("atmMultiplier")*/
 
     // Stats - show fps
-    this.stats1 = new Stats()
+    /*this.stats1 = new Stats()
     this.stats1.showPanel(0) // Panel 0 = fps
-    this.stats1.domElement.style.cssText = "position:absolute;top:0px;left:0px;"
+    this.stats1.dom.style.cssText = "position:absolute;top:0px;left:0px;"
     // this.container is the parent DOM element of the threejs canvas element
-    this.container.appendChild(this.stats1.domElement)
+    this.container.appendChild(this.stats1.domElement)*/
 
     await updateLoadingProgressBar(1.0, 100)
   },
-  // @param {number} interval - time elapsed between 2 frames
-  // @param {number} elapsed - total time elapsed since app start
+
+  /* @param {number} interval - time elapsed between 2 frames
+   * @param {number} elapsed - total time elapsed since app start
+   */
   updateScene(interval, elapsed) {
-    this.controls.update()
-    this.stats1.update()
+    //this.controls.update()
+    //this.stats1.update()
 
     // use rotateY instead of rotation.y so as to rotate by axis Y local to each mesh
-    this.earth.rotateY(interval * 0.005 * params.speedFactor)
-    this.clouds.rotateY(interval * 0.01 * params.speedFactor)
+    this.earth.rotateY(interval * 0.003 * params.speedFactor)
+    this.clouds.rotateY(interval * 0.008 * params.speedFactor)
+    this.cameragroup.rotateY(-interval * 0.003 * params.speedFactor)
 
     const shader = this.earth.material.userData.shader
     if ( shader ) {
