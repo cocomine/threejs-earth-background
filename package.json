@@ -5,16 +5,19 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel src/index.html --open",
-    "build": "parcel build src/index.html --public-url ./"
+    "build": "rimraf dist && parcel build src/index.html --public-url ./ && workbox generateSW workbox-config.js"
   },
   "dependencies": {
     "dat.gui": "0.x",
+    "mobile-detect": "^1.4.5",
     "three": "0.x"
   },
   "devDependencies": {
     "@parcel/transformer-glsl": "^2.8.3",
+    "@types/node": "^22.5.5",
     "@types/three": "^0.168.0",
-    "parcel": "^2.7.0"
+    "parcel": "^2.7.0",
+    "rimraf": "^5.0.10"
   },
   "keywords": []
 }
