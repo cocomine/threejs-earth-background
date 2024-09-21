@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82dbcdd6-8484-4ae6-82e0-fc75928f61f7" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/2k_earth_clouds.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/2k_earth_daymap.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/2k_earth_nightmap.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/2k_earth_normal_map.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/2k_earth_specular_map.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/2k_stars_milky_way.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serviceWorkerRegistration.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workbox-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+    <list default="true" id="82dbcdd6-8484-4ae6-82e0-fc75928f61f7" name="更改" comment="package fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/8k_earth_clouds.webp" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/8k_earth_clouds.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,11 +107,44 @@
       <workItem from="1726840945180" duration="244000" />
       <workItem from="1726918871446" duration="1533000" />
       <workItem from="1726920670273" duration="4747000" />
-      <workItem from="1726926641057" duration="598000" />
+      <workItem from="1726926641057" duration="2381000" />
     </task>
+    <task id="LOCAL-00001" summary="image optimization">
+      <option name="closed" value="true" />
+      <created>1726927376190</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726927376190</updated>
+    </task>
+    <task id="LOCAL-00002" summary="package fix">
+      <option name="closed" value="true" />
+      <created>1726927662216</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726927662216</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="image optimization" />
+    <MESSAGE value="package fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="package fix" />
   </component>
 </project>

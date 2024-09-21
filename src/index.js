@@ -13,21 +13,21 @@ const md = new MobileDetect(window.navigator.userAgent);
 let Albedo, Bump, Clouds, Ocean, NightLights, GaiaSky;
 
 // 2k textures for mobile and tablet, 8k textures for desktop
-if (md.mobile() || md.tablet()) {
+/*if (md.mobile() || md.tablet()) {
     Albedo = require("./assets/2k_earth_daymap.webp");
     Bump = require("./assets/2k_earth_normal_map.webp");
     Clouds = require("./assets/2k_earth_clouds.webp");
     Ocean = require("./assets/2k_earth_specular_map.webp");
     NightLights = require("./assets/2k_earth_nightmap.webp");
     GaiaSky = require("./assets/2k_stars_milky_way.webp");
-} else {
+} else {*/
     Albedo = require("./assets/8k_earth_daymap.webp");
     Bump = require("./assets/8k_earth_normal_map.webp");
     Clouds = require("./assets/8k_earth_clouds.webp");
     Ocean = require("./assets/8k_earth_specular_map.webp");
     NightLights = require("./assets/8k_earth_nightmap.webp");
     GaiaSky = require("./assets/8k_stars_milky_way.webp");
-}
+
 
 global.THREE = THREE;
 // previously this feature is .legacyMode = false, see https://www.donmccurdy.com/2020/06/17/color-management-in-threejs/
